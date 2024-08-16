@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+  background-color: rgba(255, 255, 255, 0.847);
+}
+
+header nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 2px;
+    color: blue;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: capitalize;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+.container{
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:4px;
+    margin-top: 40px;
+}
+
+
+.container .box{
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 50px;
+    font-weight: 700;
+    border: 3px solid black;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(221, 239, 23);
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px;
+    transition: scale 0.3s ease-in-out;
+    
+}
+
+.container .box:hover{
+    scale: 1.03;
+    background-color: orangered;
+}
+
+.players{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.players p{
+    font-size: 25px;
+    font-weight: 700;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.restart{
+    padding: 6px 20px;
+    margin-top: 30px;
+    cursor: pointer;
+    border: none;
+    background-color: greenyellow;
+    text-transform: uppercase;
+    font-size: 20px;
+    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0px 0px 3px;
+    transition: all .3s ease-in-out;
+    margin-bottom: 30px;
+}
+
+.restart:hover{
+    scale: 1.02;
+    background-color: rgba(255, 68, 0, 0.77);
+}
+
+.winner{
+    font-size: 30px;
+    margin-block: 10px;
+    font-weight: 700;
+    color: green;
+}
+
+.box.disabled{
+    background-color: red;
+    cursor: not-allowed;
+}
+
+/* .container .box:first-child{
+    border-top: none;
+    border-left: none;
+}
+
+.box:nth-child(2){
+    border-top: none;
+}
+.box:nth-child(3){
+    border-top: none;
+    border-right: none;
+}
+
+.box:nth-child(4){
+    border-left: none;
+}
+.box:nth-child(6){
+    border-right: none;
+}
+.box:nth-child(7){
+    border-left: none;
+    border-bottom: none;
+}
+.box:nth-child(8){
+    border-bottom: none;
+}
+
+.box:nth-child(9){
+    border-right: none;
+    border-bottom: none;
+} */
