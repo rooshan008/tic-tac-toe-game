@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic-Tac-Toe-Game</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="script.js" defer></script>
-</head>
-<body>
-        <header>
-            <nav>
-                <h1>Let's play Tic-Tac-Toe Game</h1>
-            </nav>
-        </header>
-        <main>
-            <div class="winner">
-               
-            </div>
-            <div class="container">
-                <div class="box box-1"></div>
-                <div class="box box-2"></div>
-                <div class="box box-3"></div>
-                <div class="box box-4"></div>
-                <div class="box box-5"></div>
-                <div class="box box-6"></div>
-                <div class="box box-7"></div>
-                <div class="box box-8"></div>
-                <div class="box box-9"></div>
-            </div>
-           
-            <div class="players">
-                <p class="player1">Player 1: X</p>
-                <p class="player2">Player 2: O</p>
-            </div>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Let's play Tic-Tac-Toe Game</h1>
+      </nav>
+    </header>
+    <div class="cursor">
+        <div class="dot"></div>
+    </div>
+    <main>
+      <div class="winner"></div>
+      <div class="container">
+        <div class="box box-1"></div>
+        <div class="box box-2"></div>
+        <div class="box box-3"></div>
+        <div class="box box-4"></div>
+        <div class="box box-5"></div>
+        <div class="box box-6"></div>
+        <div class="box box-7"></div>
+        <div class="box box-8"></div>
+        <div class="box box-9"></div>
+      </div>
 
-            <button class="restart">
-                REStart
-            </button>
-        </main>
-</div>
-</body>
+      <div class="players">
+        <p class="player1">Player 1: X</p>
+        <p class="player2">Player 2: O</p>
+      </div>
+
+      <button class="restart">REStart</button>
+    </main>
+  </body>
 </html>

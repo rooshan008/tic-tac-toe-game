@@ -1,7 +1,9 @@
 const gameCells = document.querySelectorAll(".box")
 const restartBtn = document.querySelector('.restart')
 const winner = document.querySelector(".winner")
-
+const body = document.querySelector('body')
+const cursor = document.querySelector('.cursor')
+const container = document.querySelector('.container')
 // Variables name
 
 let firstPlayer = "X"
@@ -85,3 +87,26 @@ restartBtn.addEventListener("click", () => {
 })
 
 gameStart()
+
+
+body.addEventListener('mousemove', (e) => {
+   gsap.to(cursor, {
+     x: e.x,
+     y: e.y,
+     duration: 0.1,
+
+   })
+})
+
+container.addEventListener('mouseenter', (e) => {
+    gsap.to(cursor, {
+        opacity:0
+   
+      })
+})
+container.addEventListener('mouseleave', (e) => {
+    gsap.to(cursor, {
+        opacity:1,
+   
+      })
+})
