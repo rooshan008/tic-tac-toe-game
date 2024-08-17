@@ -4,29 +4,52 @@ const winner = document.querySelector(".winner")
 const body = document.querySelector('body')
 const cursor = document.querySelector('.cursor')
 const container = document.querySelector('.container')
+const title = document.querySelector('.title')
+let player1 = document.querySelector('.player1')
+let player2 = document.querySelector('.player2')
+const win = new Audio('./music/y2mate-mp3cut_sRzY6rh.mp3')
+const click = new Audio('./music/punch-gaming-sound-effect-hd_RzlG1GE.mp3')
+const click1 = new Audio('./music/quack_5.mp3')
+const khatam = new Audio('./music/tmp8ljn9e7h.mp3')
+const wakeup = new Audio('./music/wake-up-to-reality.mp3')
 // Variables name
 
 let firstPlayer = "X"
 let secondPlayer = "O"
 let playerTurn = firstPlayer
 
+player1.textContent = `Player 1: ${firstPlayer}`
+player2.textContent = `Player 1: ${secondPlayer}`
+
 const gameStart = () => {
     gameCells.forEach((cell) => {
+        
         cell.addEventListener("click" , handleClick)
+        
     })
 }
 
 const handleClick = (e) => {
+
     if(e.target.textContent === ''){
         e.target.textContent = playerTurn
+       
         if(checkWinner()){
           winner.innerHTML = `${playerTurn} is winner🏆`
+          click1.pause()
+          win.play()
+
           disableCells()
         }else if(checkTie()){
             winner.innerHTML = `Game is Tie`
+            wakeup.pause()
+            khatam.play()
             disableCells()
         }else{
             changePlayerTurn()
+            winner.innerHTML = `Turn for player: ${playerTurn}`
+            wakeup.pause()
+            click1.play()
         }
     }
 }
@@ -41,7 +64,16 @@ const disableCells = () => {
 // Funciton to change player turn 
 
 const changePlayerTurn = () => {
-   playerTurn = playerTurn === firstPlayer ? secondPlayer : firstPlayer
+
+    if(playerTurn === firstPlayer){
+        playerTurn = secondPlayer
+        click.play()
+    }else{
+        playerTurn = firstPlayer
+        click.pause()
+        click1.play()
+    }
+//    playerTurn = playerTurn === firstPlayer ? secondPlayer : firstPlayer
 }
 
 // Function to check winner
@@ -82,9 +114,19 @@ const checkTie = () => {
     return emptyCellsCount === 0 && !checkWinner()
 }
 
-restartBtn.addEventListener("click", () => {
-    location.reload()
-})
+
+// function to restart game
+const restartGame = () => {
+    win.pause()
+    wakeup.play()
+    gameCells.forEach((cell) => {
+        cell.textContent = "";
+        cell.classList.remove('disabled');
+    })
+   gameStart()
+}
+
+restartBtn.addEventListener("click", restartGame)
 
 gameStart()
 
@@ -93,20 +135,31 @@ body.addEventListener('mousemove', (e) => {
    gsap.to(cursor, {
      x: e.x,
      y: e.y,
-     duration: 0.1,
+     duration: .3,
+     ease: "elastic.out(1,0.3)",
 
    })
 })
 
 container.addEventListener('mouseenter', (e) => {
+    cursor.innerHTML = "HI"
     gsap.to(cursor, {
-        opacity:0
-   
+        scale:1.1,
+        color:"white",
+        fontSize: 14,
+        fontWeight:800,
+
       })
 })
 container.addEventListener('mouseleave', (e) => {
+    cursor.innerHTML = ""
     gsap.to(cursor, {
-        opacity:1,
-   
+        scale:1
       })
 })
+
+
+let text = title.innerHTML
+
+let arrayText = text.slice(' ')
+
