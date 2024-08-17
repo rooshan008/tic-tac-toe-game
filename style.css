@@ -33,10 +33,12 @@ main{
     justify-content: center;
     margin-top: 10px;
     flex-direction: column;
+    position: relative;
+    padding: 20px;;
 }
 
 .container{
-
+    
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap:4px;
@@ -100,10 +102,12 @@ main{
 }
 
 .winner{
+     position: absolute;
     font-size: 30px;
-    margin-block: 10px;
+    margin-block: 20px;
     font-weight: 700;
     color: green;
+    bottom: 88%;
 }
 
 .box.disabled{
