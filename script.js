@@ -135,7 +135,7 @@ restartBtn.addEventListener('click', restartGame)
 gameStart()
 
 // Code for gsap
-
+// all animation code 
 function breakTheText() {
   let text = title.textContent
   let arrayText = text.split('')
