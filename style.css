@@ -115,6 +115,7 @@ main {
 
 .box.disabled {
   background-color: red;
+  color: #fff;
   cursor: not-allowed;
   border: 3px solid rgb(13, 149, 40);
 }
