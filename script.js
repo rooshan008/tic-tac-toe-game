@@ -67,7 +67,7 @@ const changePlayerTurn = () => {
     playerTurn = secondPlayer
     khatam.pause()
     click.play()
-} else {
+  } else {
     playerTurn = firstPlayer
     khatam.pause()
     click.pause()
@@ -134,35 +134,30 @@ restartBtn.addEventListener('click', restartGame)
 
 gameStart()
 
+// Code for gsap
 
-// Code for gsap 
-
-
-function breakTheText(){
+function breakTheText() {
   let text = title.textContent
   let arrayText = text.split('')
   let clutter = ''
   arrayText.forEach((text) => {
     clutter += `<span class="singleText">${text}</span>`
   })
-  
-   let titleText = title.innerHTML = clutter
-  
-   console.log(titleText.innerHTML);
-   
-  
-}
 
+  let titleText = (title.innerHTML = clutter)
+
+  console.log(titleText.innerHTML)
+}
 
 breakTheText()
 
-gsap.from('.singleText',{
-  y:-100,
-  duration:1,
+gsap.from('.singleText', {
+  y: -100,
+  duration: 1,
   stagger: 0.3,
   delay: 1,
-  opacity:0,
-})  
+  opacity: 0,
+})
 
 body.addEventListener('mousemove', (e) => {
   gsap.to(cursor, {
@@ -187,4 +182,37 @@ container.addEventListener('mouseleave', (e) => {
   gsap.to(cursor, {
     scale: 1,
   })
+})
+
+gsap.to('.marque', {
+  transform: 'translateX(0%)',
+  duration: 4,
+  ease: 'none',
+  repeat: -1,
+})
+
+window.addEventListener('wheel', (e) => {
+  if (e.deltaY > 0) {
+    gsap.to('.marque', {
+      transform: 'translateX(-200%)',
+      duration: 4,
+      ease: 'none',
+      repeat: -1,
+    })
+
+    gsap.to('.marque img', {
+      rotate: 180,
+    })
+  } else {
+    gsap.to('.marque', {
+      transform: 'translateX(0%)',
+      duration: 4,
+      ease: 'none',
+      repeat: -1,
+    })
+
+    gsap.to('.marque img', {
+      rotate: 0,
+    })
+  }
 })
