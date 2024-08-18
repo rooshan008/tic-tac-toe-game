@@ -138,14 +138,31 @@ gameStart()
 // Code for gsap 
 
 
-let text = title.textContent
-let arrayText = text.split('')
-let clutter = ''
-arrayText.forEach((text) => {
-  clutter += `<span class="singleText">${text}</span>`
-})
+function breakTheText(){
+  let text = title.textContent
+  let arrayText = text.split('')
+  let clutter = ''
+  arrayText.forEach((text) => {
+    clutter += `<span class="singleText">${text}</span>`
+  })
+  
+   let titleText = title.innerHTML = clutter
+  
+   console.log(titleText.innerHTML);
+   
+  
+}
 
-title.innerHTML = clutter
+
+breakTheText()
+
+gsap.from('.singleText',{
+  y:-100,
+  duration:1,
+  stagger: 0.3,
+  delay: 1,
+  opacity:0,
+})  
 
 body.addEventListener('mousemove', (e) => {
   gsap.to(cursor, {
